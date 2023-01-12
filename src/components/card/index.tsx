@@ -1,3 +1,4 @@
+import axios from 'axios';
 import classNames from 'classnames';
 import Loading from 'components/loading';
 import Success from 'components/success';
@@ -24,6 +25,8 @@ function Card() {
         setFileBase64(`data:${fileType};base64,${btoa(e.target.result)}`);
       };
       setuploaded(1);
+      await uploading(fileRef);
+      setuploaded(2);
     }
   }
 
@@ -35,12 +38,22 @@ function Card() {
     alert('here you\'d submit the form using\n the filebase64 like any other field');
   }
 
+  async function uploading(file: File){
+    const formData = new FormData();
+    formData.append('image', file);
+    const conect = await fetch('https://unsplash-yi42.onrender.com/images',{
+      method: 'POST',
+      body: formData
+    });
+    const conectConvert = conect.json();
+  }
+
 
   return (
     <div>
-      <form className={classNames(style.card, {
+      <form encType='FORM-DATA' className={classNames(style.card, {
         [style.card]: true,
-        [style.card__uploaded]: uploaded === 1
+        [style.card__uploaded]: uploaded === 1 || uploaded === 2
 
       })} onSubmit={formSubmit}>
         <h1>Upload your image</h1>
@@ -77,7 +90,7 @@ function Card() {
       }
       {uploaded === 2 &&
         <>
-          <Success />
+          <Success img={filebase64}/>
         </>
       }
     </div>
