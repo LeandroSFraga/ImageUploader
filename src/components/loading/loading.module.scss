@@ -1,0 +1,48 @@
+.progress {
+    background: rgba(255,255,255,0.1);
+    justify-content: flex-start;
+    border-radius: 100px;
+    align-items: center;
+    position: relative;
+    padding: 0 5px;
+    display: flex;
+    height: 40px;
+    width: 500px;
+}
+
+.progress_value{
+    animation: load 3s normal forwards;
+    box-shadow: 0 10px 40px -10px #666666;
+    border-radius: 100px;
+    background: #97BEF4;
+    height: 30px;
+    width: 0;
+}
+
+.load_card{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.load_card h1 {
+    font-family: 'Poppins';
+    font-style: normal;
+    display: block;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: #4F4F4F;
+
+    margin-top: 0px;
+    margin-bottom: 16px;
+}
+
+@keyframes load {
+    0% { width: 0; }
+    100% { width: 100%; }
+  }

@@ -1,22 +1,22 @@
 
-import style from './button.module.scss'
+import style from './button.module.scss';
 
 interface Props {
-    type?: "button" | "submit" | "reset" | undefined,
-    onClick?: () => void,
-    children?: React.ReactNode
+  htmlFor: string,
+  children?: React.ReactNode,
 }
 
-function button({ onClick, type, children }: Props) {
-    return (
-        <button
-            onClick={onClick}
-            type={type}
-            className={style.botao}
-        >
-            {children}
-        </button>
-    )
+function Button({ htmlFor, children }: Props) {
+  return (
+    <>
+      <label
+        className={style.botao}
+        htmlFor={htmlFor}
+      >
+        {children}
+      </label>
+    </>
+  );
 }
 
-export default button;
+export default Button;
