@@ -6,20 +6,22 @@
 - [Authentication App](https://devchallenges.io/challenges/N1fvBjQfhlkctmwj1tnw)
 - [My Unsplash](https://devchallenges.io/challenges/rYyhwJAxMfES5jNQ9YsP)
 
+A proposta é a criação de um app de upload de imagens, onde cada usuário poderá visualizar todas as imagens inseridas na API, deletar e adicionar novas.
+
 ## Links:
 
-- Vercels
+- [Demo](https://image-uploader-azure.vercel.app)
 
 ## Funcionalidades que desejo alcançar:
 
 - Registrar uma conta;
 - Fazer login;
 - Deslogar da conta;
-- Arrastar e jogar uma imagem para fazer upload;
-- Escolher uma imagem dos arquivos do computador;
-- Visualizar um loader quando estiver fazendo upload;
-- Ver e poder copiar a imagem quando finalizar o upload;
-- Poder copiar para a área de transferência;
+- :white_check_mark: Arrastar e jogar uma imagem para fazer upload;
+- :white_check_mark: Escolher uma imagem dos arquivos do computador;
+- :white_check_mark: Visualizar uma tela de loading quando estiver fazendo upload;
+- :white_check_mark: Ver imagem quando finalizar o upload;
+- Poder copiar o link da imagem quando finalizar o upload;
 - Visualizar todas as fotos upadas;
 - Adicionar fotos novas no topo da lista;
 - Deletar imagens;
