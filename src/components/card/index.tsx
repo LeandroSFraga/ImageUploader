@@ -9,8 +9,7 @@ import style from './card.module.scss';
 function Card() {
   const [filebase64, setFileBase64] = useState<string>('');
   const [uploaded, setuploaded] = useState(0);
-  const [images, setImages] = useState<File>();
-  const [classname, setClassname] = useState<string>('style.uploader');
+  const [linkimage, setlinkimage] = useState<string>('');
 
 
 
@@ -25,7 +24,8 @@ function Card() {
         setFileBase64(`data:${fileType};base64,${btoa(e.target.result)}`);
       };
       setuploaded(1);
-      await uploading(fileRef);
+      const upload = await uploading(fileRef);
+      setlinkimage(upload.response);
       setuploaded(2);
     }
   }
@@ -46,6 +46,7 @@ function Card() {
       body: formData
     });
     const conectConvert = conect.json();
+    return conectConvert;
   }
 
 
@@ -90,7 +91,7 @@ function Card() {
       }
       {uploaded === 2 &&
         <>
-          <Success img={filebase64}/>
+          <Success img={filebase64} linkImage={linkimage}/>
         </>
       }
     </div>
