@@ -1,6 +1,6 @@
 import style from './success.module.scss';
 import { MdVerified } from 'react-icons/md';
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 
 interface Props {
   img: string

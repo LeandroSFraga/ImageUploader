@@ -1,3 +1,12 @@
+.container{
+    bottom: 0px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .card {
     width: 402px;
     height: auto;
@@ -9,6 +18,18 @@
     flex-direction: column;
     align-items: center;
 
+}
+
+.topCard{
+    width: 338px;
+    height: 27px;
+    align-items: center;
+    display: inline-flex;
+    position: absolute;
+}
+
+.backarrow{
+    fill: #2F80ED;
 }
 
 .card__uploaded {

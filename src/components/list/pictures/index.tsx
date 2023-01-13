@@ -1,9 +1,14 @@
+import { IPicture } from '..';
 import style from './picture.module.scss';
 
-export default function Picture(){
+interface Props {
+  picture: IPicture
+}
+
+export default function Picture({ picture}: Props) {
   return (
-    <div className={style.picture}>
-      <p>ALO ALO</p>
-    </div>
+    
+    <img className={style.picture} src={picture.link} alt='imagem'></img>
+
   );
 }

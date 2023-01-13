@@ -2,6 +2,7 @@ import Search from '../navbar/Search';
 import Button from '../navbar/Button';
 import styles from './navbar.module.scss';
 import { ReactComponent as Logo } from '../../assets/img/logo.svg';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   return (
@@ -10,7 +11,7 @@ export default function Navbar() {
         <Logo />
         <Search />
       </div>
-      <Button> Add a Photo </Button>
+      <Link to={'/upload'}><Button>Add a Photo</Button></Link>
     </header>
   );
 }
