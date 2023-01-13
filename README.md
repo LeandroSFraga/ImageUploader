@@ -22,7 +22,7 @@ A proposta é a criação de um app de upload de imagens, onde cada usuário pod
 - :white_check_mark: Visualizar uma tela de loading quando estiver fazendo upload;
 - :white_check_mark: Ver imagem quando finalizar o upload;
 - :white_check_mark: Poder copiar o link da imagem quando finalizar o upload;
-- Visualizar todas as fotos upadas;
+- :white_check_mark: Visualizar todas as fotos upadas;
 - Adicionar fotos novas no topo da lista;
 - Deletar imagens;
 
