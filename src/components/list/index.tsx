@@ -6,7 +6,7 @@ import axios from 'axios';
 
 export interface IPicture {
   link: string
-  publicId: string
+  publicID: string
 }
 
 export default function List() {
@@ -23,7 +23,7 @@ export default function List() {
   return (
     <div className={style.imageslist}>
       {picture?.map((item) => (
-        <Picture key={item.publicId} picture={item} />
+        <Picture key={item.publicID} picture={item} />
       ))}
 
     </div>

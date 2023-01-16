@@ -3,4 +3,50 @@
     width: 382.87px;
     height: auto;
     border-radius: 16px;
+    box-sizing: border-box;
+}
+
+.picture:hover {
+    cursor: pointer;
+    filter: brightness(65%);
+    transition: 0.3s;
+}
+
+.deletebutton {
+    position: absolute;
+    display: inline;
+    color: #EB5757;
+    padding: 5.76px 15.87px;
+    border: 1px solid #EB5757;
+    border-radius: 38px;
+
+    left: 300px;
+    top: 7px;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    text-transform: lowercase;
+}
+.deletebuttonHidden {
+    display: none;
+}
+
+.containerPicture {
+    position: relative;
+    display: inline;
+    justify-content: end;
+}
+
+.divDelete {
+    display: inline;
+    justify-content: end;
+}
+
+.picturelabel {
+    position: absolute;
+    left: 300px;
+    top: 7px;
+
 }
