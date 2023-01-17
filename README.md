@@ -24,7 +24,7 @@ A proposta é a criação de um app de upload de imagens, onde cada usuário pod
 - :white_check_mark: Poder copiar o link da imagem quando finalizar o upload;
 - :white_check_mark: Visualizar todas as fotos upadas;
 - Adicionar fotos novas no topo da lista;
-- Deletar imagens;
+- :white_check_mark: Deletar imagens;
 
 
 Funcionalidades extras (opcional):
@@ -37,6 +37,15 @@ Funcionalidades extras (opcional):
 
 ## Screenshots:
 
-Tela de upload de imagens
+- Tela de upload de imagens
 
-![image](https://user-images.githubusercontent.com/71570108/211363989-141cc69b-d043-44f0-8b7f-39201fe2b889.png)
+![image](https://user-images.githubusercontent.com/71570108/212918331-b7d756b3-1e8d-4907-995e-88cb44d0b517.png)
+
+- Tela Login
+
+![image](https://user-images.githubusercontent.com/71570108/212918584-77cd75bc-ce0b-4920-92e9-6f6e628cb591.png)
+
+- Tela de edição de Perfil
+
+![image](https://user-images.githubusercontent.com/71570108/212918918-403d10f6-598e-48ef-b2a2-074ed90614f6.png)
+
