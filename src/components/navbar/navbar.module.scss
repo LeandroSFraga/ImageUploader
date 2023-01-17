@@ -13,24 +13,6 @@
     align-items: center;
 }
 
-.iconPerfil {
-    fill: '#2F80ED';
-    width: 25px;
-    height: 25px;
-    margin-left: 3em;
-    border: 2px solid #2F80ED;
-    background-color: #c6d7f071;
-    border-radius: 100px;
-    padding: 5px;
-    transition: 0.3s;
-
-}
-
-.iconPerfil:hover {
-    cursor: pointer;
-    background-color: #6798e071;
-}
-
 .navbar__right{
     display: flex;
     justify-content: space-between;

@@ -28,7 +28,21 @@
     font-size: 10px;
     line-height: 12px;
     text-transform: lowercase;
+
 }
+
+.deletebutton:hover {
+    cursor: pointer;
+    background-color: #EB5757;
+    color: #FFFFFF;
+    transition: 0.2s;
+
+    .picture {
+        filter: brightness(65%);
+        transition: 0.3s;
+    }
+}
+
 .deletebuttonHidden {
     display: none;
 }

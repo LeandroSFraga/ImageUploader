@@ -39,7 +39,12 @@ export default function Picture({ picture }: Props) {
         onMouseOut={mouseOut}
       ></img>
       {mouseselect && (
-        <label className={classNames(style.deletebutton)} onClick={() => deleteRequest(picture.publicID)}>delete</label>
+        <label
+          className={classNames(style.deletebutton)}
+          onClick={() => deleteRequest(picture.publicID)}
+          onMouseOver={mouseOver}
+          onMouseOut={mouseOut}
+        >delete</label>
       )}
     </div >
   );
