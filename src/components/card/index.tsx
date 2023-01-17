@@ -6,13 +6,14 @@ import React, { useState } from 'react';
 import Button from '../button';
 import style from './card.module.scss';
 import { IoMdArrowRoundBack } from 'react-icons/io';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Card() {
   const [filebase64, setFileBase64] = useState<string>('');
   const [uploaded, setuploaded] = useState(0);
   const [linkimage, setlinkimage] = useState<string>('');
 
+  const navigate = useNavigate();
 
 
   async function convertFile(files: FileList | null) {
@@ -50,7 +51,7 @@ function Card() {
 
       })}>
         <div className={style.topCard}>
-          <Link to='/'><IoMdArrowRoundBack className={style.backarrow}/></Link>
+          <IoMdArrowRoundBack className={style.backarrow} onClick={() => navigate(-1)}/>
         </div>
         <h1>Upload your image</h1>
         <h2>File should be Jpeg, Png,...</h2>

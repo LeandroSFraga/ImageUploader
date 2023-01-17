@@ -10,6 +10,7 @@ interface Props {
 
 export default function Picture({ picture }: Props) {
   const [mouseselect, setMouseSelect] = useState(false);
+  const [modal, setModal] = useState(false);
 
   const mouseOver = () => {
     setMouseSelect(true);
@@ -28,6 +29,21 @@ export default function Picture({ picture }: Props) {
 
   return (
     <div className={style.containerPicture}>
+      <div className={classNames(style.modal, {
+        [style.showModal]: !modal
+      })}>
+        <span
+          className={style.close}
+          onClick={()=>setModal(false)}
+        >&times;</span>
+        <img
+          className={style.modalContent}
+          src={picture.link}
+          id={picture.publicID}
+          alt='imagem'
+        />
+        <div></div>
+      </div>
       <img
         className={classNames(style.picture, {
           [style.picturefocus]: mouseselect
@@ -37,6 +53,7 @@ export default function Picture({ picture }: Props) {
         alt='imagem'
         onMouseOver={mouseOver}
         onMouseOut={mouseOut}
+        onClick={() => setModal(true)}
       ></img>
       {mouseselect && (
         <label
