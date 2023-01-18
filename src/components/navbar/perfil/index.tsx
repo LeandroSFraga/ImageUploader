@@ -7,12 +7,12 @@ interface Props {
 }
 
 
-export default function Perfil({name, image}:Props) {
+export default function Perfil({ name, image }: Props) {
   return (
     <div className={style.perfilContainer}>
-      <img className={style.imagePerfil} src={image}/>
+      <img className={style.imagePerfil} src={image} />
       <p className={style.imageName}>{name}</p>
-      <MdArrowDropDown size={16}/>
+      <MdArrowDropDown size={16} />
     </div>
   );
 }
