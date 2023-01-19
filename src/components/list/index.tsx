@@ -8,6 +8,7 @@ import classNames from 'classnames';
 export interface IPicture {
   link: string
   publicID: string
+  subtitle: string
 }
 
 export default function List() {
@@ -26,11 +27,11 @@ export default function List() {
   return (
     <div className={style.imageslist}>
       <div className={classNames({
-        [style.ldsring] : loading,
-        [style.ldsringstop] : !loading
+        [style.ldsring]: loading,
+        [style.ldsringstop]: !loading
       })}><div></div><div></div><div></div><div></div></div>
       {picture?.map((item) => (
-        <Picture key={item.publicID} picture={item} />
+        <Picture key={item.publicID} picture={item} subtitle={item.subtitle} />
       ))}
 
     </div>

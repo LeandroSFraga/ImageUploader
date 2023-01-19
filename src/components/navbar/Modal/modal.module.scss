@@ -17,10 +17,17 @@
     display: block;
 }
 
+.link{
+    text-decoration: none;
+    color: #4F4F4F;
+}
+
 .field {
     display: flex;
     box-sizing: border-box;
     align-items: center;
+    
+    text-decoration: none;
 }
 
 .field:hover {

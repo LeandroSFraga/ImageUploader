@@ -6,9 +6,10 @@ import style from './picture.module.scss';
 
 interface Props {
   picture: IPicture
+  subtitle: string
 }
 
-export default function Picture({ picture }: Props) {
+export default function Picture({ picture, subtitle }: Props) {
   const [mouseselect, setMouseSelect] = useState(false);
   const [modal, setModal] = useState(false);
 
@@ -34,15 +35,14 @@ export default function Picture({ picture }: Props) {
       })}>
         <span
           className={style.close}
-          onClick={()=>setModal(false)}
+          onClick={() => setModal(false)}
         >&times;</span>
         <img
           className={style.modalContent}
           src={picture.link}
           id={picture.publicID}
-          alt='imagem'
+          alt={subtitle}
         />
-        <div></div>
       </div>
       <img
         className={classNames(style.picture, {
@@ -50,11 +50,14 @@ export default function Picture({ picture }: Props) {
         })}
         src={picture.link}
         id={picture.publicID}
-        alt='imagem'
+        alt={subtitle}
         onMouseOver={mouseOver}
         onMouseOut={mouseOut}
         onClick={() => setModal(true)}
       ></img>
+      {mouseselect &&
+        <div className={style.picturelabel}>{subtitle}</div>
+      }
       {mouseselect && (
         <label
           className={classNames(style.deletebutton)}
