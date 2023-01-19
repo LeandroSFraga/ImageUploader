@@ -6,6 +6,7 @@ import classNames from 'classnames';
 
 
 export interface IPicture {
+  _id: string
   link: string
   publicID: string
   subtitle: string
@@ -31,7 +32,7 @@ export default function List() {
         [style.ldsringstop]: !loading
       })}><div></div><div></div><div></div><div></div></div>
       {picture?.map((item) => (
-        <Picture key={item.publicID} picture={item} subtitle={item.subtitle} />
+        <Picture key={item._id} picture={item} subtitle={item.subtitle} />
       ))}
 
     </div>

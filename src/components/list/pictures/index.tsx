@@ -21,8 +21,8 @@ export default function Picture({ picture, subtitle }: Props) {
     setMouseSelect(false);
   };
 
-  async function deleteRequest(publicID: string) {
-    await axios.delete(`https://unsplash-yi42.onrender.com/images/${publicID}`)
+  async function deleteRequest(_id: string) {
+    await axios.delete(`https://unsplash-yi42.onrender.com/images/${_id}`)
       .then(resposta => (console.log(resposta))
       );
     window.location.reload();
@@ -40,7 +40,7 @@ export default function Picture({ picture, subtitle }: Props) {
         <img
           className={style.modalContent}
           src={picture.link}
-          id={picture.publicID}
+          id={picture._id}
           alt={subtitle}
         />
       </div>
@@ -49,7 +49,7 @@ export default function Picture({ picture, subtitle }: Props) {
           [style.picturefocus]: mouseselect
         })}
         src={picture.link}
-        id={picture.publicID}
+        id={picture._id}
         alt={subtitle}
         onMouseOver={mouseOver}
         onMouseOut={mouseOut}
@@ -61,7 +61,7 @@ export default function Picture({ picture, subtitle }: Props) {
       {mouseselect && (
         <label
           className={classNames(style.deletebutton)}
-          onClick={() => deleteRequest(picture.publicID)}
+          onClick={() => deleteRequest(picture._id)}
           onMouseOver={mouseOver}
           onMouseOut={mouseOut}
         >delete</label>
