@@ -15,6 +15,7 @@ export interface IPicture {
 export default function List() {
   const [picture, setPicture] = useState<IPicture[]>();
   const [loading, setloading] = useState(false);
+  const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
     setloading(true);
@@ -31,9 +32,14 @@ export default function List() {
         [style.ldsring]: loading,
         [style.ldsringstop]: !loading
       })}><div></div><div></div><div></div><div></div></div>
-      {picture?.map((item) => (
-        <Picture key={item._id} picture={item} subtitle={item.subtitle} />
-      ))}
+      <div>
+        {picture?.map((item) => (
+          item.subtitle.includes('')
+            ?
+            <Picture key={item._id} picture={item} subtitle={item.subtitle} />
+            : ''
+        ))}
+      </div>
 
     </div>
   );

@@ -10,7 +10,7 @@
     background-color: rgba(0, 0, 0, 0.9);
 }
 
-.modalContent{
+.modalContent {
     margin: auto;
     display: block;
     width: 80%;
@@ -20,9 +20,14 @@
 }
 
 @keyframes zoom {
-    from {transform: scale(0.1)} 
-    to {transform: scale(1)}
-  }
+    from {
+        transform: scale(0.1)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
 
 .close {
     position: absolute;
@@ -33,19 +38,21 @@
     font-weight: bold;
     transition: 0.3s;
     cursor: pointer;
-  }
-  
+}
+
 
 .showModal {
     display: none;
 }
 
+//https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/
 .picture {
-    display: block;
-    width: 382.87px;
-    height: 382.87px;;
+    max-width: 100%;
     border-radius: 16px;
-    box-sizing: border-box;
+    display: block;
+    // width: 382.87px;
+    // height: 382.87px;
+    // box-sizing: border-box;
 }
 
 .picture:hover {
@@ -61,10 +68,9 @@
     padding: 5.76px 15.87px;
     border: 1px solid #EB5757;
     border-radius: 38px;
-
-    left: 300px;
-    top: 7px;
-
+    margin-top: 7px;
+    margin-right: 7px;
+    justify-self: end;
     font-style: normal;
     font-weight: 500;
     font-size: 10px;
@@ -90,23 +96,26 @@
 }
 
 .containerPicture {
+    margin: 0;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    margin-bottom: 2em;
+    break-inside: avoid;
+    justify-content: center;
     position: relative;
-    display: inline;
-    justify-content: end;
 }
 
-.divDelete {
-    display: inline;
-    justify-content: end;
+.containerPicture>.picture {
+    grid-row: 1 / -1;
+    grid-column: 1;
 }
 
 .picturelabel {
     color: #FFFFFF;
     font-weight: bold;
     position: absolute;
-    bottom: 8px;
-    left: 16px;
     font-size: 18px;
     margin-bottom: 32.73px;
     margin-left: 24.04px;
+    align-self: end;
 }

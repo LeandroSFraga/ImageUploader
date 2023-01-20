@@ -2,10 +2,12 @@ import Search from '../navbar/Search';
 import Button from '../navbar/Button';
 import styles from './navbar.module.scss';
 import { ReactComponent as Logo } from '../../assets/img/logo.svg';
+import { GrSearch } from 'react-icons/gr';
 import { Link } from 'react-router-dom';
 import Perfil from './perfil';
 import Modal from './Modal';
 import { useState } from 'react';
+
 
 export default function Navbar() {
   const [showModal, setShowModal] = useState(false);
