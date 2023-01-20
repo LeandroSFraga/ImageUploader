@@ -48,7 +48,7 @@ export default function Picture({ picture, subtitle }: Props) {
       </div>
       <img
         className={classNames(style.picture, {
-          [style.picturefocus]: infosForPictureIsVisible,
+          [style.pictureHover]: infosForPictureIsVisible,
         })}
         src={picture.link}
         id={picture._id}

@@ -2,8 +2,9 @@ import style from './logincard.module.scss';
 import { ReactComponent as Logo } from '../../assets/img/devchallenges.svg';
 import { MdEmail } from 'react-icons/md';
 import { IoMdLock } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
-export default function LoginCard() {
+export default function RegisterCard() {
   return (
     <div className={style.loginContainer}>
       <div className={style.loginCard}>
@@ -35,7 +36,10 @@ export default function LoginCard() {
           <button className={style.cardButton}>Start coding now</button>
         </form>
         <p className={style.littleText}>
-          already a member? <span className={style.textLink}>Login</span>
+          already a member?{' '}
+          <Link to={'/login'} className={style.textLink}>
+            Login
+          </Link>
         </p>
       </div>
     </div>

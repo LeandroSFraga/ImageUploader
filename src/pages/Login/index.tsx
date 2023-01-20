@@ -1,9 +1,9 @@
-import LoginCard from 'components/logincard';
+import RegisterCard from 'components/registercard';
 
-export default function Login() {
+export default function Register() {
   return (
     <div>
-      <LoginCard />
+      <RegisterCard />
     </div>
   );
 }
