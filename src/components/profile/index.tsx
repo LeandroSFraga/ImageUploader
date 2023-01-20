@@ -8,26 +8,39 @@ export default function EditProfile() {
   const [card, setCard] = useState(false);
   return (
     <div className={style.profileContainer}>
-
-      <div className={classNames(style.profileCardContainer, {
-        [style.profileDisplay]: card
-      })}>
+      <div
+        className={classNames(style.profileCardContainer, {
+          [style.profileDisplay]: card,
+        })}
+      >
         <div className={style.personalContainer}>
           <h1 className={style.personalInfo}>Personal info</h1>
-          <p className={style.personalDesc}>Basic info, like your name and photo</p>
+          <p className={style.personalDesc}>
+            Basic info, like your name and photo
+          </p>
         </div>
         <div className={style.cardInfoProfile}>
           <div className={style.cardHeader}>
             <div>
               <h2 className={style.headerProfile}>Profile</h2>
-              <p className={style.headerDesc}>Some info may be visible to other people</p>
+              <p className={style.headerDesc}>
+                Some info may be visible to other people
+              </p>
             </div>
-            <button className={style.headerButton} onClick={() => setCard(true)} >Edit</button>
+            <button
+              className={style.headerButton}
+              onClick={() => setCard(true)}
+            >
+              Edit
+            </button>
           </div>
           <div className={style.cardRows}>
             <div className={style.row}>
               <p className={style.rowCategory}>PHOTO</p>
-              <img className={style.rowPhoto} src='https://via.placeholder.com/72' />
+              <img
+                className={style.rowPhoto}
+                src="https://via.placeholder.com/72"
+              />
             </div>
             <div className={style.row}>
               <p className={style.rowCategory}>NAME</p>
@@ -35,7 +48,9 @@ export default function EditProfile() {
             </div>
             <div className={style.row}>
               <p className={style.rowCategory}>BIO</p>
-              <p className={style.rowText}>I am a software developer and a big fan of devchallenges...</p>
+              <p className={style.rowText}>
+                I am a software developer and a big fan of devchallenges...
+              </p>
             </div>
             <div className={style.row}>
               <p className={style.rowCategory}>PHONE</p>
@@ -53,10 +68,12 @@ export default function EditProfile() {
         </div>
       </div>
 
-      <div className={classNames(style.profileCardContainer, {
-        [style.profileDisplay]: !card
-      })}>
-        <div >
+      <div
+        className={classNames(style.profileCardContainer, {
+          [style.profileDisplay]: !card,
+        })}
+      >
+        <div>
           <div className={style.backButton} onClick={() => setCard(false)}>
             <IoIosArrowBack />
             <p className={style.backButtonText}>Back</p>
@@ -64,10 +81,15 @@ export default function EditProfile() {
         </div>
         <div className={style.profileCard}>
           <h1 className={style.profileTitle}>Change Info</h1>
-          <p className={style.profileDesc}>Changes will be reflected to every services</p>
+          <p className={style.profileDesc}>
+            Changes will be reflected to every services
+          </p>
           <div className={style.profileChangePhoto}>
             <div className={style.profilePhoto}>
-              <img className={style.profileImage} src='https://via.placeholder.com/72' />
+              <img
+                className={style.profileImage}
+                src="https://via.placeholder.com/72"
+              />
               <BsFillCameraFill className={style.camIcon} />
             </div>
             <p className={style.photoText}>CHANGE PHOTO</p>
@@ -75,23 +97,38 @@ export default function EditProfile() {
           <form>
             <p className={style.inputText}>Name</p>
             <div>
-              <textarea className={style.input} placeholder='Enter your name...' />
+              <textarea
+                className={style.input}
+                placeholder="Enter your name..."
+              />
             </div>
             <p className={style.inputText}>Bio</p>
             <div>
-              <textarea className={classNames(style.input, { [style.inputBio]: true })} placeholder='Enter your bio...' />
+              <textarea
+                className={classNames(style.input, { [style.inputBio]: true })}
+                placeholder="Enter your bio..."
+              />
             </div>
             <p className={style.inputText}>Phone</p>
             <div>
-              <textarea className={style.input} placeholder='Enter your phone...' />
+              <textarea
+                className={style.input}
+                placeholder="Enter your phone..."
+              />
             </div>
             <p className={style.inputText}>Email</p>
             <div>
-              <textarea className={style.input} placeholder='Enter your email...' />
+              <textarea
+                className={style.input}
+                placeholder="Enter your email..."
+              />
             </div>
             <p className={style.inputText}>Password</p>
             <div>
-              <textarea className={style.input} placeholder='Enter your new password...' />
+              <textarea
+                className={style.input}
+                placeholder="Enter your new password..."
+              />
             </div>
             <button className={style.editButton}>Save</button>
           </form>

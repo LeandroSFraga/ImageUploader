@@ -1,121 +1,113 @@
 .modal {
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .modalContent {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    animation-name: zoom;
-    animation-duration: 0.6s;
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  animation-name: zoom;
+  animation-duration: 0.6s;
 }
 
 @keyframes zoom {
-    from {
-        transform: scale(0.1)
-    }
+  from {
+    transform: scale(0.1);
+  }
 
-    to {
-        transform: scale(1)
-    }
+  to {
+    transform: scale(1);
+  }
 }
 
 .close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #2F80ED;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #2f80ed;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
 }
-
 
 .showModal {
-    display: none;
+  display: none;
 }
 
-//https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/
 .picture {
-    max-width: 100%;
-    border-radius: 16px;
-    display: block;
-    // width: 382.87px;
-    // height: 382.87px;
-    // box-sizing: border-box;
-}
+  max-width: 100%;
+  border-radius: 16px;
+  display: block;
 
-.picture:hover {
+  &:hover {
     cursor: pointer;
     filter: brightness(65%);
     transition: 0.3s;
+  }
 }
 
-.deletebutton {
-    position: absolute;
-    display: inline;
-    color: #EB5757;
-    padding: 5.76px 15.87px;
-    border: 1px solid #EB5757;
-    border-radius: 38px;
-    margin-top: 7px;
-    margin-right: 7px;
-    justify-self: end;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 10px;
-    line-height: 12px;
-    text-transform: lowercase;
+.deleteButton {
+  position: absolute;
+  display: inline;
+  color: #eb5757;
+  padding: 5.76px 15.87px;
+  border: 1px solid #eb5757;
+  border-radius: 38px;
+  margin-top: 7px;
+  margin-right: 7px;
+  justify-self: end;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+  text-transform: lowercase;
+  background-color: transparent;
 
-}
-
-.deletebutton:hover {
+  &:hover {
     cursor: pointer;
-    background-color: #EB5757;
-    color: #FFFFFF;
+    background-color: #eb5757;
+    color: #ffffff;
     transition: 0.2s;
 
-    .picture {
-        filter: brightness(65%);
-        transition: 0.3s;
+    .picture & {
+      filter: brightness(65%);
+      transition: 0.3s;
     }
-}
-
-.deletebuttonHidden {
-    display: none;
+  }
 }
 
 .containerPicture {
-    margin: 0;
-    display: grid;
-    grid-template-rows: 1fr auto;
-    margin-bottom: 2em;
-    break-inside: avoid;
-    justify-content: center;
-    position: relative;
-}
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  margin-bottom: 2em;
+  break-inside: avoid;
+  justify-content: center;
+  position: relative;
 
-.containerPicture>.picture {
+  > .picture {
     grid-row: 1 / -1;
     grid-column: 1;
+  }
 }
 
 .picturelabel {
-    color: #FFFFFF;
-    font-weight: bold;
-    position: absolute;
-    font-size: 18px;
-    margin-bottom: 32.73px;
-    margin-left: 24.04px;
-    align-self: end;
+  color: #ffffff;
+  font-weight: bold;
+  position: absolute;
+  font-size: 18px;
+  margin-bottom: 32.73px;
+  margin-left: 24.04px;
+  align-self: end;
+  cursor: pointer;
 }

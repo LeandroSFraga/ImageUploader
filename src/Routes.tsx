@@ -11,11 +11,11 @@ export default function AppRouter() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/upload' element={<Card />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/profile' element={<Profile />} />
-        <Route path='*' element={<NotFound />}/>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/upload" element={<Card />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

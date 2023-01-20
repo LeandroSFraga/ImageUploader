@@ -1,4 +1,3 @@
-
 import EditProfile from 'components/profile';
 
 export default function Profile() {

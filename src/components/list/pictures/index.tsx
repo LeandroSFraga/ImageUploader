@@ -5,38 +5,40 @@ import { IPicture } from '..';
 import style from './picture.module.scss';
 
 interface Props {
-  picture: IPicture
-  subtitle: string
+  picture: IPicture;
+  subtitle: string;
 }
 
 export default function Picture({ picture, subtitle }: Props) {
-  const [mouseselect, setMouseSelect] = useState(false);
+  const [infosForPictureIsVisible, setInfosForPictureIsVisible] =
+    useState(false);
   const [modal, setModal] = useState(false);
 
   const mouseOver = () => {
-    setMouseSelect(true);
+    setInfosForPictureIsVisible(true);
   };
 
   const mouseOut = () => {
-    setMouseSelect(false);
+    setInfosForPictureIsVisible(false);
   };
 
   async function deleteRequest(_id: string) {
-    await axios.delete(`https://unsplash-yi42.onrender.com/images/${_id}`)
-      .then(resposta => (console.log(resposta))
-      );
+    await axios
+      .delete(`https://unsplash-yi42.onrender.com/images/${_id}`)
+      .then((resposta) => console.log(resposta));
     window.location.reload();
   }
 
   return (
     <div className={style.containerPicture}>
-      <div className={classNames(style.modal, {
-        [style.showModal]: !modal
-      })}>
-        <span
-          className={style.close}
-          onClick={() => setModal(false)}
-        >&times;</span>
+      <div
+        className={classNames(style.modal, {
+          [style.showModal]: !modal,
+        })}
+      >
+        <span className={style.close} onClick={() => setModal(false)}>
+          &times;
+        </span>
         <img
           className={style.modalContent}
           src={picture.link}
@@ -46,7 +48,7 @@ export default function Picture({ picture, subtitle }: Props) {
       </div>
       <img
         className={classNames(style.picture, {
-          [style.picturefocus]: mouseselect
+          [style.picturefocus]: infosForPictureIsVisible,
         })}
         src={picture.link}
         id={picture._id}
@@ -55,17 +57,26 @@ export default function Picture({ picture, subtitle }: Props) {
         onMouseOut={mouseOut}
         onClick={() => setModal(true)}
       ></img>
-      {mouseselect &&
-        <div className={style.picturelabel}>{subtitle}</div>
-      }
-      {mouseselect && (
-        <label
-          className={classNames(style.deletebutton)}
-          onClick={() => deleteRequest(picture._id)}
-          onMouseOver={mouseOver}
-          onMouseOut={mouseOut}
-        >delete</label>
+      {infosForPictureIsVisible && (
+        <>
+          <label
+            className={style.picturelabel}
+            onMouseOver={mouseOver}
+            onMouseOut={mouseOut}
+            htmlFor={picture._id}
+          >
+            {subtitle}
+          </label>
+          <button
+            className={classNames(style.deleteButton)}
+            onClick={() => deleteRequest(picture._id)}
+            onMouseOver={mouseOver}
+            onMouseOut={mouseOut}
+          >
+            delete
+          </button>
+        </>
       )}
-    </div >
+    </div>
   );
 }

@@ -1,46 +1,51 @@
 import { useEffect, useState } from 'react';
 import style from './list.module.scss';
 import Picture from './pictures';
-import axios from 'axios';
 import classNames from 'classnames';
-
+import axiosClient from 'services/api/axios';
+import { redirect } from 'react-router-dom';
 
 export interface IPicture {
-  _id: string
-  link: string
-  publicID: string
-  subtitle: string
+  _id: string;
+  link: string;
+  publicID: string;
+  subtitle: string;
 }
 
 export default function List() {
   const [picture, setPicture] = useState<IPicture[]>();
-  const [loading, setloading] = useState(false);
-  const [searchText, setSearchText] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setloading(true);
-    axios.get('https://unsplash-yi42.onrender.com/images')
-      .then(resposta => {
-        setPicture(resposta.data.response);
-      }).then(() => setloading(false));
-
+    setLoading(true);
+    try {
+      axiosClient
+        .get('/images')
+        .then((resposta) => {
+          setPicture(resposta.data.response);
+        })
+        .then(() => setLoading(false));
+    } catch (err) {
+      redirect('/notfound');
+    }
   }, []);
 
   return (
-    <div className={style.imageslist}>
-      <div className={classNames({
-        [style.ldsring]: loading,
-        [style.ldsringstop]: !loading
-      })}><div></div><div></div><div></div><div></div></div>
+    <div className={style.imagesList}>
+      <div
+        className={classNames({
+          [style.loading]: loading,
+        })}
+      ></div>
       <div>
-        {picture?.map((item) => (
-          item.subtitle.includes('')
-            ?
+        {picture?.map((item) =>
+          item.subtitle.includes('') ? (
             <Picture key={item._id} picture={item} subtitle={item.subtitle} />
-            : ''
-        ))}
+          ) : (
+            ''
+          )
+        )}
       </div>
-
     </div>
   );
 }

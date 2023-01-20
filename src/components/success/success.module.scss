@@ -1,79 +1,79 @@
 .card {
-
-    background: #FFFFFF;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    padding: 36px 32px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background: #ffffff;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title {
-    height: 27px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 27px;
-    text-align: center;
-    letter-spacing: -0.035em;
-    color: #4F4F4F;
-
+  height: 27px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  letter-spacing: -0.035em;
+  color: #4f4f4f;
 }
 
 .img {
-    border-radius: 12px;
-    width: 338px;
-    height: 224.4px;
+  border-radius: 12px;
+  width: 338px;
+  height: 224.4px;
 }
 
 .label {
-    margin-top: 15px;
-    width: 338px;
-    height: 34px;
-    background: #F6F8FB;
-    border: 1px solid #E0E0E0;
-    border-radius: 8px;
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
+  margin-top: 15px;
+  width: 338px;
+  height: 34px;
+  background: #f6f8fb;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
 
 .text {
-    overflow: hidden;
-    white-space: nowrap;
-    width: 250px;
-    height: 12px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 8px;
-    line-height: 12px;
-    text-align: center;
-    letter-spacing: -0.035em;
-    color: #4F4F4F;
-    text-overflow: ellipsis;
-    padding-left: 1em;
-    cursor: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 250px;
+  height: 12px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 8px;
+  line-height: 12px;
+  text-align: center;
+  letter-spacing: -0.035em;
+  color: #4f4f4f;
+  text-overflow: ellipsis;
+  padding-left: 1em;
+  cursor: auto;
 }
 
 .button {
-    width: 60px;
-    height: 34px;
-    background: #2F80ED;
-    border: none;
-    border-radius: 8px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 8px;
-    line-height: 12px;
-    text-align: center;
-    letter-spacing: -0.035em;
-    color: #FFFFFF;
+  width: 60px;
+  height: 34px;
+  background: #2f80ed;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 8px;
+  line-height: 12px;
+  text-align: center;
+  letter-spacing: -0.035em;
+  color: #ffffff;
 }
 
-.button:hover {
+.button {
+  &:hover {
     cursor: pointer;
     background-color: #154e99cb;
+  }
 }

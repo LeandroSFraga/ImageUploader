@@ -1,18 +1,14 @@
-
 import style from './button.module.scss';
 
 interface Props {
-  htmlFor: string,
-  children?: React.ReactNode,
+  htmlFor: string;
+  children?: React.ReactNode;
 }
 
 function Button({ htmlFor, children }: Props) {
   return (
     <>
-      <label
-        className={style.botao}
-        htmlFor={htmlFor}
-      >
+      <label className={style.button} htmlFor={htmlFor}>
         {children}
       </label>
     </>

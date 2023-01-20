@@ -2,10 +2,9 @@ import style from './perfil.module.scss';
 import { MdArrowDropDown } from 'react-icons/md';
 
 interface Props {
-  name: string,
-  image: string | undefined
+  name: string;
+  image: string | undefined;
 }
-
 
 export default function Perfil({ name, image }: Props) {
   return (

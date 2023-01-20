@@ -1,223 +1,217 @@
 .profileDisplay {
-    display: none;
+  display: none;
 }
 
 .profileContainer {
-    bottom: 0px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profileCardContainer {
-    margin: 50px 0px;
+  margin: 50px 0px;
 }
 
 .personalContainer {
-    width: 845.91px;
-    align-items: center;
-    text-align: center;
+  width: 845.91px;
+  align-items: center;
+  text-align: center;
 }
 
 .personalInfo {
-    font-size: 36px;
-    line-height: 49px;
-    letter-spacing: -0.035em;
-    color: #000000;
-    margin: 0px;
+  font-size: 36px;
+  line-height: 49px;
+  letter-spacing: -0.035em;
+  color: #000000;
+  margin: 0px;
 }
 
 .personalDesc {
-    font-size: 18px;
-    line-height: 25px;
-    letter-spacing: -0.035em;
-    color: #000000;
-    margin: 0px;
-    margin-top: 8px;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.035em;
+  color: #000000;
+  margin: 0px;
+  margin-top: 8px;
 }
 
 .cardInfoProfile {
-    height: auto;
-    width: auto;
-    border: 1px solid #E0E0E0;
-    border-radius: 12px;
-    margin-top: 44px;
+  height: auto;
+  width: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  margin-top: 44px;
 }
 
 .cardHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 28.32px 49.3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28.32px 49.3px;
 }
 
 .headerProfile {
-    font-size: 24px;
-    line-height: 33px;
-    letter-spacing: -0.035em;
-    color: #000000;
-    margin: 0px;
+  font-size: 24px;
+  line-height: 33px;
+  letter-spacing: -0.035em;
+  color: #000000;
+  margin: 0px;
 }
 
 .headerDesc {
-    font-size: 13px;
-    line-height: 18px;
-    letter-spacing: -0.035em;
-    color: #828282;
-    margin-top: 4px;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: -0.035em;
+  color: #828282;
+  margin-top: 4px;
 }
 
 .headerButton {
-    border: 1px solid #828282;
-    border-radius: 12px;
-    width: 95.34px;
-    height: 38px;
-    background-color: transparent;
-    font-size: 16px;
-    line-height: 22px;
-    letter-spacing: -0.035em;
-    color: #828282;
-    cursor: pointer;
+  border: 1px solid #828282;
+  border-radius: 12px;
+  width: 95.34px;
+  height: 38px;
+  background-color: transparent;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: -0.035em;
+  color: #828282;
+  cursor: pointer;
 
-    &:hover {
-        background-color: #8282822d;
-        transition: 0.2s;
-    }
+  &:hover {
+    background-color: #8282822d;
+    transition: 0.2s;
+  }
 }
 
 .row {
-    border-top: 1px solid #D3D3D3;
-    padding: 28.32px 49.3px;
-    display: flex;
-    align-items: center;
-
+  border-top: 1px solid #d3d3d3;
+  padding: 28.32px 49.3px;
+  display: flex;
+  align-items: center;
 }
 
 .rowCategory {
-    font-size: 13px;
-    line-height: 18px;
-    letter-spacing: -0.035em;
-    color: #BDBDBD;
-    width: 250px;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: -0.035em;
+  color: #bdbdbd;
+  width: 250px;
 }
 
 .rowPhoto {
-    border-radius: 8px;
+  border-radius: 8px;
 }
 
 .rowText {
-    font-size: 18px;
-    line-height: 25px;
-    letter-spacing: -0.035em;
-    color: #333333;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.035em;
+  color: #333333;
 }
-
-
-
-
 
 .backButton,
 Link {
-    display: flex;
-    align-items: center;
-    color: #2D9CDB;
-    cursor: pointer;
-    text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: #2d9cdb;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .backButtonText {
-    margin-left: 8.6px;
+  margin-left: 8.6px;
 }
 
 .profileCard {
-    padding: 47px;
-    border: 1px solid #E0E0E0;
-    border-radius: 12px;
-    width: calc(827px - 47px * 2);
-
+  padding: 47px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  width: calc(827px - 47px * 2);
 }
 
 .profileTitle {
-    font-size: 24px;
-    line-height: 33px;
-    letter-spacing: -0.035em;
-    color: #000000;
-    margin: 0px;
+  font-size: 24px;
+  line-height: 33px;
+  letter-spacing: -0.035em;
+  color: #000000;
+  margin: 0px;
 }
 
 .profileDesc {
-    font-size: 13px;
-    line-height: 18px;
-    letter-spacing: -0.035em;
-    color: #828282;
-    margin-top: 4px;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: -0.035em;
+  color: #828282;
+  margin-top: 4px;
 }
 
 .profileChangePhoto {
-    display: flex;
-    align-items: center;
-    margin: 25px 0;
+  display: flex;
+  align-items: center;
+  margin: 25px 0;
 }
 
 .profilePhoto {
-    position: relative;
-    margin-right: 25px;
+  position: relative;
+  margin-right: 25px;
 }
 
 .profileImage {
-    border-radius: 8px;
+  border-radius: 8px;
 }
 
 .camIcon {
-    position: absolute;
-    top: 30.5px;
-    left: 30.5px;
-    color: #FFFFFF;
+  position: absolute;
+  top: 30.5px;
+  left: 30.5px;
+  color: #ffffff;
 }
 
 .photoText {
-    font-size: 13px;
-    line-height: 18px;
-    letter-spacing: -0.035em;
-    color: #828282;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: -0.035em;
+  color: #828282;
 }
 
 .inputText {
-    margin: 25px 0px 4px 0px;
-    font-size: 13px;
-    line-height: 18px;
-    letter-spacing: -0.035em;
-    color: #4F4F4F;
+  margin: 25px 0px 4px 0px;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: -0.035em;
+  color: #4f4f4f;
 }
 
 .input {
-    width: 416.93px;
-    height: calc(52px - 17px);
-    border: 1px solid #828282;
-    border-radius: 12px;
-    padding: 17px 0px 0px 18.21px;
-    font-size: 13px;
-    line-height: 18px;
-    letter-spacing: -0.035em;
-    color: #BDBDBD;
-    resize: none;
-    background-color: #FAFAFA;
-    outline: none;
+  width: 416.93px;
+  height: calc(52px - 17px);
+  border: 1px solid #828282;
+  border-radius: 12px;
+  padding: 17px 0px 0px 18.21px;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: -0.035em;
+  color: #bdbdbd;
+  resize: none;
+  background-color: #fafafa;
+  outline: none;
 }
 
 .inputBio {
-    height: calc(91.58px - 17px);
+  height: calc(91.58px - 17px);
 }
 
 .editButton {
-    background: #2F80ED;
-    border-radius: 8px;
-    width: 82px;
-    height: 38px;
-    border: none;
-    color: #FFFFFF;
-    margin-top: 24px;
-    cursor: pointer;
+  background: #2f80ed;
+  border-radius: 8px;
+  width: 82px;
+  height: 38px;
+  border: none;
+  color: #ffffff;
+  margin-top: 24px;
+  cursor: pointer;
 }
