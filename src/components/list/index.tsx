@@ -39,13 +39,16 @@ export default function List({ search }: listSearchProps) {
         })}
       ></div>
       <div>
-        {picture?.map((item) =>
-          item.subtitle.toLowerCase().includes(search.toLowerCase()) ? (
-            <Picture key={item._id} picture={item} subtitle={item.subtitle} />
-          ) : (
-            ''
-          )
-        )}
+        {picture
+          ?.slice(0)
+          .reverse()
+          .map((item) =>
+            item.subtitle.toLowerCase().includes(search.toLowerCase()) ? (
+              <Picture key={item._id} picture={item} subtitle={item.subtitle} />
+            ) : (
+              ''
+            )
+          )}
       </div>
     </div>
   );

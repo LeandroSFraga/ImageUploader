@@ -45,6 +45,7 @@ export default function Picture({ picture, subtitle }: Props) {
           id={picture._id}
           alt={subtitle}
         />
+        <h1 className={style.modalText}>{subtitle}</h1>
       </div>
       <img
         className={classNames(style.picture, {

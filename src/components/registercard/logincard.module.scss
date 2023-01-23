@@ -67,6 +67,12 @@
   text-align: center;
   letter-spacing: -0.035em;
   color: #ffffff;
+
+  &:hover {
+    cursor: pointer;
+    background: #2465b9;
+    transition: 0.3s;
+  }
 }
 
 .littleText {
