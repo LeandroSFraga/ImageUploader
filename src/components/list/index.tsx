@@ -40,7 +40,7 @@ export default function List({ search }: listSearchProps) {
       ></div>
       <div>
         {picture?.map((item) =>
-          item.subtitle.includes(search) ? (
+          item.subtitle.toLowerCase().includes(search.toLowerCase()) ? (
             <Picture key={item._id} picture={item} subtitle={item.subtitle} />
           ) : (
             ''
