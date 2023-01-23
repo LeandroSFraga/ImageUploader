@@ -7,7 +7,11 @@ import Perfil from './perfil';
 import Modal from './Modal';
 import { useState } from 'react';
 
-export default function Navbar() {
+export interface SearchProps {
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function Navbar({ setSearch }: SearchProps) {
   const [showModal, setShowModal] = useState(false);
   return (
     <header className={styles.navbar}>
@@ -15,7 +19,7 @@ export default function Navbar() {
         <Link to={'/'}>
           <Logo />
         </Link>
-        <Search />
+        <Search setSearch={setSearch} />
       </div>
       <div className={styles.navbarSide}>
         <Link to={'/upload'}>

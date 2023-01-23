@@ -6,6 +6,20 @@ import { useState } from 'react';
 
 export default function EditProfile() {
   const [card, setCard] = useState(false);
+  const [name, setName] = useState('');
+  const [bio, setBio] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  function handleEditProfile() {
+    event?.preventDefault();
+    console.log(`name: ${name}\n
+    bio: ${bio}\n
+    phone: ${phone}\n
+    email: ${email}\n
+    password: ${password}\n`);
+  }
   return (
     <div className={style.profileContainer}>
       <div
@@ -94,12 +108,13 @@ export default function EditProfile() {
             </div>
             <p className={style.photoText}>CHANGE PHOTO</p>
           </div>
-          <form>
+          <form onSubmit={() => handleEditProfile()}>
             <p className={style.inputText}>Name</p>
             <div>
               <textarea
                 className={style.input}
                 placeholder="Enter your name..."
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
             <p className={style.inputText}>Bio</p>
@@ -107,6 +122,7 @@ export default function EditProfile() {
               <textarea
                 className={classNames(style.input, { [style.inputBio]: true })}
                 placeholder="Enter your bio..."
+                onChange={(e) => setBio(e.target.value)}
               />
             </div>
             <p className={style.inputText}>Phone</p>
@@ -114,6 +130,7 @@ export default function EditProfile() {
               <textarea
                 className={style.input}
                 placeholder="Enter your phone..."
+                onChange={(e) => setPhone(e.target.value)}
               />
             </div>
             <p className={style.inputText}>Email</p>
@@ -121,6 +138,7 @@ export default function EditProfile() {
               <textarea
                 className={style.input}
                 placeholder="Enter your email..."
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <p className={style.inputText}>Password</p>
@@ -128,6 +146,7 @@ export default function EditProfile() {
               <textarea
                 className={style.input}
                 placeholder="Enter your new password..."
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <button className={style.editButton}>Save</button>

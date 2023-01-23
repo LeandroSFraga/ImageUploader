@@ -1,9 +1,13 @@
 import List from 'components/list';
 
-export default function HomePage() {
+export interface listSearchProps {
+  search: string;
+}
+
+export default function HomePage({ search }: listSearchProps) {
   return (
     <div>
-      <List />
+      <List search={search} />
     </div>
   );
 }

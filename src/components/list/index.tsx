@@ -4,6 +4,7 @@ import Picture from './pictures';
 import classNames from 'classnames';
 import axiosClient from 'services/api/axios';
 import { redirect } from 'react-router-dom';
+import { listSearchProps } from 'pages/Home';
 
 export interface IPicture {
   _id: string;
@@ -12,7 +13,7 @@ export interface IPicture {
   subtitle: string;
 }
 
-export default function List() {
+export default function List({ search }: listSearchProps) {
   const [picture, setPicture] = useState<IPicture[]>();
   const [loading, setLoading] = useState(false);
 
@@ -39,7 +40,7 @@ export default function List() {
       ></div>
       <div>
         {picture?.map((item) =>
-          item.subtitle.includes('') ? (
+          item.subtitle.includes(search) ? (
             <Picture key={item._id} picture={item} subtitle={item.subtitle} />
           ) : (
             ''

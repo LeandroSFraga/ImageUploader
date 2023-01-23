@@ -1,5 +1,5 @@
 import style from './modal.module.scss';
-import { MdPeopleAlt, MdAccountCircle, MdExitToApp } from 'react-icons/md';
+import { MdAccountCircle, MdExitToApp } from 'react-icons/md';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 
@@ -20,10 +20,6 @@ export default function Modal({ show }: Props) {
           <p className={style.text}>My Profile</p>
         </div>
       </Link>
-      <div className={style.field}>
-        <MdPeopleAlt className={style.icon} />
-        <p className={style.text}>Group Chat</p>
-      </div>
       <hr color="red" className={style.line} />
       <div className={style.field}>
         <MdExitToApp
