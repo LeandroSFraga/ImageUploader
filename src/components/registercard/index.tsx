@@ -4,14 +4,33 @@ import { MdEmail } from 'react-icons/md';
 import { IoMdLock } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import axiosClient from 'services/api/axios';
+import { LoginProps } from 'pages/Login';
 
-export default function RegisterCard() {
+export default function RegisterCard({ setToken }: LoginProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
 
-  function handleRegister() {
+  async function Register(userInfos: object) {
+    try {
+      await axiosClient.post('/user', userInfos).then((response) => {
+        console.log(response);
+        setToken(response.data.response.id);
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function handleRegister() {
     event?.preventDefault();
-    console.log(`email: ${email} \nsenha: ${password}`);
+    const userInfos = {
+      username: username,
+      email: email,
+      password: password,
+    };
+    await Register(userInfos);
   }
 
   return (
@@ -31,12 +50,23 @@ export default function RegisterCard() {
         </p>
         <form className={style.form} onSubmit={() => handleRegister()}>
           <div className={style.field}>
+            <IoMdLock className={style.icon} />
+            <input
+              className={style.input}
+              type="text"
+              placeholder="Username"
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
+          <div className={style.field}>
             <MdEmail className={style.icon} />
             <input
               className={style.input}
               type="email"
               placeholder="Email"
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
           <div className={style.field}>
@@ -46,6 +76,7 @@ export default function RegisterCard() {
               type="password"
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
           <button className={style.cardButton}>Start coding now</button>

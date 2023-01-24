@@ -1,9 +1,28 @@
-import RegisterCard from 'components/registercard';
+import { getToken } from 'auth/token';
+import LoginCard from 'components/registercard/logincard';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export default function Register() {
+export interface LoginProps {
+  setToken(userToken: object): void;
+}
+
+export default function Login({ setToken }: LoginProps) {
+  function IsLogged() {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+      if (getToken()) {
+        navigate('/');
+      }
+    }, [getToken()]);
+  }
+
   return (
-    <div>
-      <RegisterCard />
-    </div>
+    <>
+      <div>
+        {getToken() ? <>{IsLogged()}</> : <LoginCard setToken={setToken} />}
+      </div>
+    </>
   );
 }

@@ -215,3 +215,17 @@ Link {
   margin-top: 24px;
   cursor: pointer;
 }
+
+.deleteButton {
+  margin-left: 20px;
+  background: #eb5757;
+  border-radius: 8px;
+  height: 38px;
+  border: none;
+  color: #ffffff;
+  margin-top: 24px;
+  &:hover {
+    cursor: pointer;
+    background: #ce3f3f;
+  }
+}

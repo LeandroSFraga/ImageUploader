@@ -1,21 +1,16 @@
 import Card from 'components/card';
-import Register from 'pages/Login';
+import Register from 'pages/Register';
 import Navbar from 'components/navbar';
 import HomePage from 'pages/Home';
-import Login from 'pages/Register';
+import Login from 'pages/Login';
 import NotFound from 'pages/NotFound';
 import Profile from 'pages/Profile';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
+import { setToken } from 'auth/token';
 
 export default function AppRouter() {
-  const [token, setToken] = useState('');
   const [search, setSearch] = useState('');
-  console.log(search);
-
-  if (token) {
-    return <Route path="/login" />;
-  }
 
   return (
     <Router>
@@ -23,7 +18,7 @@ export default function AppRouter() {
       <Routes>
         <Route path="/" element={<HomePage search={search} />} />
         <Route path="/upload" element={<Card />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login setToken={setToken} />} />
         <Route path="*" element={<NotFound />} />

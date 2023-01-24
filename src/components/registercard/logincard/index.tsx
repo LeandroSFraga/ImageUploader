@@ -5,11 +5,23 @@ import { IoMdLock } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import { BsFacebook, BsGithub, BsGoogle, BsTwitter } from 'react-icons/bs';
 import { useState } from 'react';
-import { LoginProps } from 'pages/Register';
+import { LoginProps } from 'pages/Login';
+// import axiosClient from 'services/api/axios';
 
 export default function LoginCard({ setToken }: LoginProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  // async function Login(userInfos: object) {
+  //   try {
+  //     await axiosClient.post('/user', userInfos).then((response) => {
+  //       console.log(response);
+  //       setToken(response.data.response.id);
+  //     });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
 
   function handleLogin() {
     event?.preventDefault();
