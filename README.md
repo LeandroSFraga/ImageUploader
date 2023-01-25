@@ -14,9 +14,9 @@ A proposta é a criação de um app de upload de imagens, onde cada usuário pod
 
 ## Funcionalidades que desejo alcançar:
 
-- Registrar uma conta;
-- Fazer login;
-- Deslogar da conta;
+- :white_check_mark: Registrar uma conta;
+- :white_check_mark: Fazer login;
+- :white_check_mark: Deslogar da conta;
 - :white_check_mark: Arrastar e jogar uma imagem para fazer upload;
 - :white_check_mark: Escolher uma imagem dos arquivos do computador;
 - :white_check_mark: Visualizar uma tela de loading quando estiver fazendo upload;
@@ -29,9 +29,10 @@ A proposta é a criação de um app de upload de imagens, onde cada usuário pod
 Funcionalidades extras (opcional):
 
 - :white_check_mark: Quando encostar em uma foto, ver detalhes;
-- Editar e visualizar perfil;
+- :white_check_mark: Editar Perfil
+- Visualizar perfil;
 - :white_check_mark: Adicionar legendas no upload de fotos;
-- Pesquisar fotos por legenda;
+- :white_check_mark: Pesquisar fotos por legenda;
 
 
 ## Screenshots:
