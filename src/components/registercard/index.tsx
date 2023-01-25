@@ -1,7 +1,7 @@
 import style from './logincard.module.scss';
 import { ReactComponent as Logo } from '../../assets/img/devchallenges.svg';
 import { MdEmail } from 'react-icons/md';
-import { IoMdLock } from 'react-icons/io';
+import { IoMdLock, IoMdPerson } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axiosClient from 'services/api/axios';
@@ -14,10 +14,13 @@ export default function RegisterCard({ setToken }: LoginProps) {
 
   async function Register(userInfos: object) {
     try {
-      await axiosClient.post('/user', userInfos).then((response) => {
-        console.log(response);
-        setToken(response.data.response.id);
-      });
+      await axiosClient
+        .post('/user', userInfos)
+        .then((response) => {
+          setToken(response.data.response.token);
+          localStorage.setItem('id', response.data.response.id);
+        })
+        .then(() => window.location.reload());
     } catch (err) {
       console.log(err);
     }
@@ -50,7 +53,7 @@ export default function RegisterCard({ setToken }: LoginProps) {
         </p>
         <form className={style.form} onSubmit={() => handleRegister()}>
           <div className={style.field}>
-            <IoMdLock className={style.icon} />
+            <IoMdPerson className={style.icon} />
             <input
               className={style.input}
               type="text"

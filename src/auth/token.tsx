@@ -1,7 +1,17 @@
-export function setToken(userToken: object) {
-  sessionStorage.setItem('token', JSON.stringify(userToken));
+import { getCookie, removeCookie, setCookie } from 'typescript-cookie';
+export function setToken(value: string) {
+  setCookie('token', value, {
+    expires: 365,
+    path: '',
+    secure: true,
+    sameSite: 'strict',
+  });
 }
 
 export function getToken() {
-  return sessionStorage.getItem('token');
+  return getCookie('token');
+}
+
+export function removeToken() {
+  removeCookie('token');
 }

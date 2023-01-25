@@ -3,6 +3,8 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { BsFillCameraFill } from 'react-icons/bs';
 import classNames from 'classnames';
 import { useState } from 'react';
+import axiosClient from 'services/api/axios';
+import { removeToken } from 'auth/token';
 
 export default function EditProfile() {
   const [card, setCard] = useState(false);
@@ -11,14 +13,70 @@ export default function EditProfile() {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [image, setImage] = useState<File>();
+  const [FileBase64, setFileBase64] = useState(
+    'https://via.placeholder.com/72'
+  );
 
-  function handleEditProfile() {
+  async function convertFile(files: FileList | null) {
+    if (files) {
+      const fileRef = files[0] || '';
+      const fileType: string = fileRef.type || '';
+      const reader = new FileReader();
+      reader.readAsBinaryString(fileRef);
+      reader.onload = (e) => {
+        typeof e.target?.result === 'string'
+          ? setFileBase64(`data:${fileType};base64,${btoa(e.target?.result)}`)
+          : '';
+      };
+      setImage(fileRef);
+    }
+  }
+
+  async function handleEditProfile() {
     event?.preventDefault();
-    console.log(`name: ${name}\n
-    bio: ${bio}\n
-    phone: ${phone}\n
-    email: ${email}\n
-    password: ${password}\n`);
+
+    const formData = new FormData();
+    const id = localStorage.getItem('id');
+    if (id) {
+      formData.append('id', id);
+    }
+    if (image) {
+      formData.append('image', image);
+    }
+    formData.append('username', name);
+    formData.append('bio', bio);
+    formData.append('phone', phone);
+    formData.append('email', email);
+    formData.append('password', password);
+    await editAccount(formData);
+  }
+
+  async function editAccount(userInfos: FormData) {
+    event?.preventDefault();
+    console.log(userInfos.get('id'));
+    try {
+      axiosClient
+        .put('/user', userInfos)
+        .then((response) => console.log(response))
+        .then(() => window.location.reload());
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  function deleteAccount() {
+    event?.preventDefault();
+    try {
+      axiosClient
+        .delete(`/user/${localStorage.getItem('id')}`)
+        .then((response) => console.log(response))
+        .then(() => {
+          removeToken();
+        });
+    } catch (err) {
+      console.log(err);
+    }
   }
   return (
     <div className={style.profileContainer}>
@@ -98,17 +156,23 @@ export default function EditProfile() {
           <p className={style.profileDesc}>
             Changes will be reflected to every services
           </p>
-          <div className={style.profileChangePhoto}>
-            <div className={style.profilePhoto}>
-              <img
-                className={style.profileImage}
-                src="https://via.placeholder.com/72"
-              />
-              <BsFillCameraFill className={style.camIcon} />
+          <form encType="FORM-DATA">
+            <div className={style.profileChangePhoto}>
+              <div className={style.profilePhoto}>
+                <img className={style.profileImage} src={FileBase64} />
+                <BsFillCameraFill className={style.camIcon} />
+                <input
+                  type="file"
+                  id="input_file"
+                  className={style.uploaderInput}
+                  multiple
+                  accept="image/*"
+                  onChange={(e) => convertFile(e.target.files)}
+                />
+              </div>
+              <p className={style.photoText}>CHANGE PHOTO</p>
             </div>
-            <p className={style.photoText}>CHANGE PHOTO</p>
-          </div>
-          <form onSubmit={() => handleEditProfile()}>
+
             <p className={style.inputText}>Name</p>
             <div>
               <textarea
@@ -149,7 +213,17 @@ export default function EditProfile() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button className={style.editButton}>Save</button>
+            <div>
+              <button className={style.editButton} onClick={handleEditProfile}>
+                Save
+              </button>
+              <button
+                className={style.deleteButton}
+                onClick={() => deleteAccount()}
+              >
+                Delete Account
+              </button>
+            </div>
           </form>
         </div>
       </div>

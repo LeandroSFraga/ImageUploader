@@ -156,8 +156,11 @@ Link {
 }
 
 .profilePhoto {
+  display: flex;
   position: relative;
   margin-right: 25px;
+  width: 72px;
+  height: 72px;
 }
 
 .profileImage {
@@ -169,6 +172,15 @@ Link {
   top: 30.5px;
   left: 30.5px;
   color: #ffffff;
+}
+
+.uploaderInput {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 50%;
+  z-index: 1;
+  opacity: 0;
 }
 
 .photoText {

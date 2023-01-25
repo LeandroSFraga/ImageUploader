@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export interface LoginProps {
-  setToken(userToken: object): void;
+  setToken(value: string): void;
 }
 
 export default function Login({ setToken }: LoginProps) {

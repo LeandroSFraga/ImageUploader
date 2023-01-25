@@ -6,27 +6,33 @@ import { Link } from 'react-router-dom';
 import { BsFacebook, BsGithub, BsGoogle, BsTwitter } from 'react-icons/bs';
 import { useState } from 'react';
 import { LoginProps } from 'pages/Login';
-// import axiosClient from 'services/api/axios';
+import axiosClient from 'services/api/axios';
 
 export default function LoginCard({ setToken }: LoginProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // async function Login(userInfos: object) {
-  //   try {
-  //     await axiosClient.post('/user', userInfos).then((response) => {
-  //       console.log(response);
-  //       setToken(response.data.response.id);
-  //     });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
+  async function Login(userInfos: object) {
+    try {
+      await axiosClient
+        .post('/user/login', userInfos)
+        .then((response) => {
+          setToken(response.data.response.token);
+          localStorage.setItem('id', response.data.response.id);
+        })
+        .then(() => window.location.reload());
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   function handleLogin() {
     event?.preventDefault();
-    console.log(`email: ${email} \nsenha: ${password}`);
-    // setToken(token);
+    const userInfos = {
+      email: email,
+      password: password,
+    };
+    Login(userInfos);
   }
 
   return (
@@ -53,7 +59,9 @@ export default function LoginCard({ setToken }: LoginProps) {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button className={style.cardButton}>Login</button>
+          <button className={style.cardButton} onClick={() => handleLogin()}>
+            Login
+          </button>
         </form>
         <p className={style.littleText}>
           or continue with these social profile
