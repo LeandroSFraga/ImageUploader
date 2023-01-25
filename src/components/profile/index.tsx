@@ -54,12 +54,8 @@ export default function EditProfile() {
 
   async function editAccount(userInfos: FormData) {
     event?.preventDefault();
-    console.log(userInfos.get('id'));
     try {
-      axiosClient
-        .put('/user', userInfos)
-        .then((response) => console.log(response))
-        .then(() => window.location.reload());
+      axiosClient.put('/user', userInfos).then(() => window.location.reload());
     } catch (err) {
       console.log(err);
     }
@@ -68,12 +64,9 @@ export default function EditProfile() {
   function deleteAccount() {
     event?.preventDefault();
     try {
-      axiosClient
-        .delete(`/user/${localStorage.getItem('id')}`)
-        .then((response) => console.log(response))
-        .then(() => {
-          removeToken();
-        });
+      axiosClient.delete(`/user/${localStorage.getItem('id')}`).then(() => {
+        removeToken();
+      });
     } catch (err) {
       console.log(err);
     }

@@ -1,4 +1,3 @@
-import { getToken } from 'auth/token';
 import List from 'components/list';
 
 export interface listSearchProps {
@@ -6,7 +5,6 @@ export interface listSearchProps {
 }
 
 export default function HomePage({ search }: listSearchProps) {
-  console.log(getToken());
   return (
     <div>
       <List search={search} />

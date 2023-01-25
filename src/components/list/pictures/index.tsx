@@ -23,9 +23,7 @@ export default function Picture({ picture, subtitle }: Props) {
   };
 
   async function deleteRequest(_id: string) {
-    await axios
-      .delete(`https://unsplash-yi42.onrender.com/images/${_id}`)
-      .then((resposta) => console.log(resposta));
+    await axios.delete(`https://unsplash-yi42.onrender.com/images/${_id}`);
     window.location.reload();
   }
 
