@@ -3,6 +3,7 @@ import { MdAccountCircle, MdExitToApp } from 'react-icons/md';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { getToken, removeToken } from 'auth/token';
+import { useUserStore } from 'hooks/useUserStore';
 
 interface Props {
   show: boolean;
@@ -11,6 +12,7 @@ interface Props {
 export default function Modal({ show }: Props) {
   function logout() {
     removeToken();
+    useUserStore.persist.clearStorage();
     window.location.assign('/login');
   }
   return (

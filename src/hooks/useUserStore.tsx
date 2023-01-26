@@ -4,12 +4,11 @@ import { persist } from 'zustand/middleware';
 
 export interface UserState {
   user: User;
-  removeUser: () => void;
 }
 
 export const useUserStore = create(
   persist<UserState>(
-    (set) => ({
+    () => ({
       user: {
         _id: '',
         bio: '',
@@ -18,7 +17,6 @@ export const useUserStore = create(
         profilePicture: '',
         username: '',
       },
-      removeUser: () => set({}, true),
     }),
     {
       name: 'user-store',

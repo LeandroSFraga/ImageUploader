@@ -25,15 +25,13 @@ A proposta é a criação de um app de upload de imagens, onde cada usuário pod
 - :white_check_mark: Visualizar todas as fotos upadas;
 - :white_check_mark: Deletar imagens;
 
-
 Funcionalidades extras (opcional):
 
 - :white_check_mark: Quando encostar em uma foto, ver detalhes;
 - :white_check_mark: Editar Perfil
-- Visualizar perfil;
+- :white_check_mark: Visualizar perfil;
 - :white_check_mark: Adicionar legendas no upload de fotos;
 - :white_check_mark: Pesquisar fotos por legenda;
-
 
 ## Screenshots:
 
@@ -52,5 +50,3 @@ Funcionalidades extras (opcional):
 - Tela de listagem de imagens
 
 ![image](https://user-images.githubusercontent.com/71570108/213750772-cd0523ff-70e0-418f-b24c-2b781c034c47.png)
-
-
