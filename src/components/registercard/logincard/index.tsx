@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 import { BsFacebook, BsGithub, BsGoogle, BsTwitter } from 'react-icons/bs';
 import { useState } from 'react';
 import { LoginProps } from 'pages/Login';
-import axiosClient from 'services/api/axios';
+import { axiosClient } from 'services/api/axios';
+import getByToken from 'services/api/getByToken';
 
 export default function LoginCard({ setToken }: LoginProps) {
   const [email, setEmail] = useState('');
@@ -20,7 +21,8 @@ export default function LoginCard({ setToken }: LoginProps) {
           setToken(response.data.response.token);
           localStorage.setItem('id', response.data.response.id);
         })
-        .then(() => window.location.reload());
+        .then(() => window.location.reload())
+        .then(() => getByToken());
     } catch (err) {
       console.log(err);
     }

@@ -3,8 +3,9 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { BsFillCameraFill } from 'react-icons/bs';
 import classNames from 'classnames';
 import { useState } from 'react';
-import axiosClient from 'services/api/axios';
+import { axiosClient } from 'services/api/axios';
 import { removeToken } from 'auth/token';
+import { useUserStore } from 'hooks/useUserStore';
 
 export default function EditProfile() {
   const [card, setCard] = useState(false);
@@ -19,6 +20,7 @@ export default function EditProfile() {
   );
 
   async function convertFile(files: FileList | null) {
+    console.log(useUserStore.getState().user);
     if (files) {
       const fileRef = files[0] || '';
       const fileType: string = fileRef.type || '';
@@ -55,7 +57,10 @@ export default function EditProfile() {
   async function editAccount(userInfos: FormData) {
     event?.preventDefault();
     try {
-      axiosClient.put('/user', userInfos).then(() => window.location.reload());
+      axiosClient.put('/user', userInfos).then(
+        // () => getByToken(),
+        () => window.location.reload()
+      );
     } catch (err) {
       console.log(err);
     }
@@ -64,9 +69,11 @@ export default function EditProfile() {
   function deleteAccount() {
     event?.preventDefault();
     try {
-      axiosClient.delete(`/user/${localStorage.getItem('id')}`).then(() => {
-        removeToken();
-      });
+      axiosClient
+        .delete(`/user/${useUserStore.getState().user._id}`)
+        .then(() => {
+          removeToken();
+        });
     } catch (err) {
       console.log(err);
     }
@@ -104,26 +111,32 @@ export default function EditProfile() {
               <p className={style.rowCategory}>PHOTO</p>
               <img
                 className={style.rowPhoto}
-                src="https://via.placeholder.com/72"
+                src={useUserStore.getState().user.profilePicture}
               />
             </div>
             <div className={style.row}>
               <p className={style.rowCategory}>NAME</p>
-              <p className={style.rowText}>Xanthe Neal</p>
+              <p className={style.rowText}>
+                {useUserStore.getState().user.username}
+              </p>
             </div>
             <div className={style.row}>
               <p className={style.rowCategory}>BIO</p>
               <p className={style.rowText}>
-                I am a software developer and a big fan of devchallenges...
+                {useUserStore.getState().user.bio}
               </p>
             </div>
             <div className={style.row}>
               <p className={style.rowCategory}>PHONE</p>
-              <p className={style.rowText}>908249274292</p>
+              <p className={style.rowText}>
+                {useUserStore.getState().user.phone}
+              </p>
             </div>
             <div className={style.row}>
               <p className={style.rowCategory}>EMAIL</p>
-              <p className={style.rowText}>xanthe.neal@gmail.com</p>
+              <p className={style.rowText}>
+                {useUserStore.getState().user.email}
+              </p>
             </div>
             <div className={style.row}>
               <p className={style.rowCategory}>PASSWORD</p>

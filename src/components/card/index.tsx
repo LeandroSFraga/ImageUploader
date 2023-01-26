@@ -6,7 +6,7 @@ import Button from '../button';
 import style from './card.module.scss';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
-import axiosClient from 'services/api/axios';
+import { axiosClient } from 'services/api/axios';
 
 function Card() {
   const [filebase64, setFileBase64] = useState('');
@@ -42,7 +42,7 @@ function Card() {
       try {
         await axiosClient
           .post('/images', formData)
-          .then((response) => {
+          .then((response: any) => {
             setLinkImage(response.data.response.imageLink);
           })
           .then(() => setUploaded(2));

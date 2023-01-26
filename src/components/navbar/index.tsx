@@ -5,8 +5,10 @@ import { ReactComponent as Logo } from '../../assets/img/logo.svg';
 import { Link } from 'react-router-dom';
 import Perfil from './perfil';
 import Modal from './Modal';
-import { useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { getToken } from 'auth/token';
+import { useUserStore } from 'hooks/useUserStore';
+import getByToken from 'services/api/getByToken';
 
 export interface SearchProps {
   setSearch: React.Dispatch<React.SetStateAction<string>>;
@@ -17,6 +19,10 @@ export interface UserProps {
 
 export default function Navbar({ setSearch }: SearchProps) {
   const [showModal, setShowModal] = useState(false);
+
+  useLayoutEffect(() => {
+    getByToken();
+  }, []);
 
   return (
     <header className={styles.navbar}>
@@ -34,17 +40,14 @@ export default function Navbar({ setSearch }: SearchProps) {
             </Link>
             <div onClick={() => setShowModal(!showModal)}>
               <Perfil
-                name={'logado'}
-                image={'https://via.placeholder.com/32'}
+                name={useUserStore.getState().user.username}
+                image={useUserStore.getState().user.profilePicture}
               />
             </div>
           </>
         ) : (
           <div onClick={() => setShowModal(!showModal)}>
-            <Perfil
-              name={'Sem nome'}
-              image={'https://via.placeholder.com/32'}
-            />
+            <Perfil name={'Perfil'} image={'https://via.placeholder.com/32'} />
           </div>
         )}
       </div>

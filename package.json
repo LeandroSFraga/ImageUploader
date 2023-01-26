@@ -22,7 +22,8 @@
     "react-stack-grid": "^0.7.1",
     "typescript": "^4.9.4",
     "typescript-cookie": "^1.0.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "zustand": "^4.3.2"
   },
   "scripts": {
     "start": "react-scripts start",

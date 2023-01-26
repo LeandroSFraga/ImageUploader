@@ -1,6 +1,6 @@
-import axios from 'axios';
 import classNames from 'classnames';
 import { useState } from 'react';
+import { axiosClient } from 'services/api/axios';
 import { IPicture } from '..';
 import style from './picture.module.scss';
 
@@ -23,7 +23,9 @@ export default function Picture({ picture, subtitle }: Props) {
   };
 
   async function deleteRequest(_id: string) {
-    await axios.delete(`https://unsplash-yi42.onrender.com/images/${_id}`);
+    await axiosClient.delete(
+      `https://unsplash-yi42.onrender.com/images/${_id}`
+    );
     window.location.reload();
   }
 

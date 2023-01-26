@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import style from './list.module.scss';
 import Picture from './pictures';
 import classNames from 'classnames';
-import axiosClient from 'services/api/axios';
+import { axiosClient } from 'services/api/axios';
 import { redirect } from 'react-router-dom';
 import { listSearchProps } from 'pages/Home';
 
@@ -22,7 +22,7 @@ export default function List({ search }: listSearchProps) {
     try {
       axiosClient
         .get('/images')
-        .then((resposta) => {
+        .then((resposta: any) => {
           setPicture(resposta.data.response);
         })
         .then(() => setLoading(false));

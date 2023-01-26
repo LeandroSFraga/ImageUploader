@@ -4,8 +4,9 @@ import { MdEmail } from 'react-icons/md';
 import { IoMdLock, IoMdPerson } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import axiosClient from 'services/api/axios';
+import { axiosClient } from 'services/api/axios';
 import { LoginProps } from 'pages/Login';
+import getByToken from 'services/api/getByToken';
 
 export default function RegisterCard({ setToken }: LoginProps) {
   const [email, setEmail] = useState('');
@@ -20,7 +21,8 @@ export default function RegisterCard({ setToken }: LoginProps) {
           setToken(response.data.response.token);
           localStorage.setItem('id', response.data.response.id);
         })
-        .then(() => window.location.reload());
+        .then(() => window.location.reload())
+        .then(() => getByToken());
     } catch (err) {
       console.log(err);
     }
