@@ -38,7 +38,7 @@ export default function EditProfile() {
     event?.preventDefault();
 
     const formData = new FormData();
-    const id = localStorage.getItem('id');
+    const id = useUserStore.getState().user.id;
     id && formData.append('id', id);
     image && formData.append('image', image);
     name && formData.append('username', name);
@@ -58,10 +58,7 @@ export default function EditProfile() {
             'Content-Type': 'multipart/form-data',
           },
         })
-        .then(
-          // () => getByToken(),
-          () => window.location.reload()
-        );
+        .then(() => window.location.reload());
     } catch (err) {
       console.log(err);
     }
