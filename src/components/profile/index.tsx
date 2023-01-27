@@ -3,7 +3,7 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { BsFillCameraFill } from 'react-icons/bs';
 import classNames from 'classnames';
 import { useState } from 'react';
-import { axiosClient } from 'services/api/axios';
+import { axiosClient, axiosEdit } from 'services/api/axios';
 import { removeToken } from 'auth/token';
 import { useUserStore } from 'hooks/useUserStore';
 
@@ -19,8 +19,9 @@ export default function EditProfile() {
     'https://via.placeholder.com/72'
   );
 
+  console.log(useUserStore.getState().user);
+  console.log(useUserStore.getState().user.id);
   async function convertFile(files: FileList | null) {
-    console.log(useUserStore.getState().user);
     if (files) {
       const fileRef = files[0] || '';
       const fileType: string = fileRef.type || '';
@@ -40,27 +41,29 @@ export default function EditProfile() {
 
     const formData = new FormData();
     const id = localStorage.getItem('id');
-    if (id) {
-      formData.append('id', id);
-    }
-    if (image) {
-      formData.append('image', image);
-    }
-    formData.append('username', name);
-    formData.append('bio', bio);
-    formData.append('phone', phone);
-    formData.append('email', email);
-    formData.append('password', password);
+    id && formData.append('id', id);
+    image && formData.append('image', image);
+    name && formData.append('username', name);
+    bio && formData.append('bio', bio);
+    phone && formData.append('phone', phone);
+    email && formData.append('email', email);
+    password && formData.append('password', password);
     await editAccount(formData);
   }
 
   async function editAccount(userInfos: FormData) {
     event?.preventDefault();
     try {
-      axiosClient.put('/user', userInfos).then(
-        // () => getByToken(),
-        () => window.location.reload()
-      );
+      axiosEdit
+        .put('/user', userInfos, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        })
+        .then(
+          // () => getByToken(),
+          () => window.location.reload()
+        );
     } catch (err) {
       console.log(err);
     }
@@ -70,9 +73,11 @@ export default function EditProfile() {
     event?.preventDefault();
     try {
       axiosClient
-        .delete(`/user/${useUserStore.getState().user._id}`)
+        .delete(`/user/${useUserStore.getState().user.id}`)
         .then(() => {
           removeToken();
+          useUserStore.persist.clearStorage();
+          window.location.reload();
         });
     } catch (err) {
       console.log(err);

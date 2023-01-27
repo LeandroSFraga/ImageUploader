@@ -5,7 +5,7 @@ import { ReactComponent as Logo } from '../../assets/img/logo.svg';
 import { Link } from 'react-router-dom';
 import Perfil from './perfil';
 import Modal from './Modal';
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getToken } from 'auth/token';
 import { useUserStore } from 'hooks/useUserStore';
 import getByToken from 'services/api/getByToken';
@@ -20,9 +20,9 @@ export interface UserProps {
 export default function Navbar({ setSearch }: SearchProps) {
   const [showModal, setShowModal] = useState(false);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     getByToken();
-  }, []);
+  }, [getByToken()]);
 
   return (
     <header className={styles.navbar}>

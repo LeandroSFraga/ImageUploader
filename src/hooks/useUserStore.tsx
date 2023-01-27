@@ -10,7 +10,7 @@ export const useUserStore = create(
   persist<UserState>(
     () => ({
       user: {
-        _id: '',
+        id: '',
         bio: '',
         email: '',
         phone: '',

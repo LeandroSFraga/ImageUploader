@@ -22,7 +22,7 @@ export default function List({ search }: listSearchProps) {
     try {
       axiosClient
         .get('/images')
-        .then((resposta: any) => {
+        .then((resposta) => {
           setPicture(resposta.data.response);
         })
         .then(() => setLoading(false));

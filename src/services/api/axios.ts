@@ -8,6 +8,15 @@ const axiosClient = axios.create({
   baseURL: 'https://unsplash-yi42.onrender.com',
 });
 
+const axiosEdit = axios.create({
+  headers: {
+    'Content-Type': 'multipart/form-data',
+    Authorization: `${getToken()}`,
+  },
+  baseURL: 'https://unsplash-yi42.onrender.com',
+  data: {},
+});
+
 const axiosToken = axios.create({
   method: 'GET',
   headers: {
@@ -17,4 +26,4 @@ const axiosToken = axios.create({
   baseURL: 'https://unsplash-yi42.onrender.com',
 });
 
-export { axiosClient, axiosToken };
+export { axiosClient, axiosToken, axiosEdit };

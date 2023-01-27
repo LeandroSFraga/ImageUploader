@@ -4,5 +4,5 @@ export interface User {
   phone: string;
   profilePicture: string;
   username: string;
-  _id: string;
+  id: string;
 }
