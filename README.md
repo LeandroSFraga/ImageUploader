@@ -49,4 +49,8 @@ Funcionalidades extras (opcional):
 
 - Tela de listagem de imagens
 
-![image](https://user-images.githubusercontent.com/71570108/213750772-cd0523ff-70e0-418f-b24c-2b781c034c47.png)
+![image](https://user-images.githubusercontent.com/71570108/215105679-94b3d53a-6109-4a9b-9511-b5609c2f7a1f.png)
+
+- Modal de imagem
+
+![image](https://user-images.githubusercontent.com/71570108/215105777-db385524-3213-496d-b4fc-931d88b64630.png)
