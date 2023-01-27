@@ -16,7 +16,7 @@ export default function EditProfile() {
   const [password, setPassword] = useState('');
   const [image, setImage] = useState<File>();
   const [FileBase64, setFileBase64] = useState(
-    'https://via.placeholder.com/72'
+    useUserStore.getState().user.profilePicture
   );
 
   async function convertFile(files: FileList | null) {

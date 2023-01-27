@@ -155,6 +155,7 @@ Link {
   display: flex;
   align-items: center;
   margin: 25px 0;
+  cursor: pointer;
 }
 
 .profilePhoto {
@@ -163,10 +164,13 @@ Link {
   margin-right: 25px;
   width: 72px;
   height: 72px;
+  cursor: pointer;
 }
 
 .profileImage {
   border-radius: 8px;
+  width: 72px;
+  height: 72px;
 }
 
 .camIcon {
@@ -178,11 +182,12 @@ Link {
 
 .uploaderInput {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 72px;
+  height: 72px;
   opacity: 50%;
   z-index: 1;
   opacity: 0;
+  cursor: pointer;
 }
 
 .photoText {
