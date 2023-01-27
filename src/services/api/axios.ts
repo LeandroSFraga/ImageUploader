@@ -1,11 +1,13 @@
 import { getToken } from 'auth/token';
 import axios from 'axios';
 
+const BASE_URL = 'https://unsplash-yi42.onrender.com';
+
 const axiosClient = axios.create({
   headers: {
     Authorization: `${getToken()}`,
   },
-  baseURL: 'https://unsplash-yi42.onrender.com',
+  baseURL: BASE_URL,
 });
 
 const axiosEdit = axios.create({
@@ -13,7 +15,7 @@ const axiosEdit = axios.create({
     'Content-Type': 'multipart/form-data',
     Authorization: `${getToken()}`,
   },
-  baseURL: 'https://unsplash-yi42.onrender.com',
+  baseURL: BASE_URL,
   data: {},
 });
 
@@ -23,7 +25,7 @@ const axiosToken = axios.create({
     'Content-Type': 'application/x-www-form-urlencoded',
     Authorization: `Bearer ${getToken()}`,
   },
-  baseURL: 'https://unsplash-yi42.onrender.com',
+  baseURL: BASE_URL,
 });
 
 export { axiosClient, axiosToken, axiosEdit };

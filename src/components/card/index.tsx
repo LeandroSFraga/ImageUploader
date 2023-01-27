@@ -42,8 +42,8 @@ function Card() {
       try {
         await axiosClient
           .post('/images', formData)
-          .then((response: any) => {
-            setLinkImage(response.data.response.imageLink);
+          .then((response) => {
+            setLinkImage(response.data.response.link);
           })
           .then(() => setUploaded(2));
       } catch (err) {

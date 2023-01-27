@@ -19,8 +19,6 @@ export default function EditProfile() {
     'https://via.placeholder.com/72'
   );
 
-  console.log(useUserStore.getState().user);
-  console.log(useUserStore.getState().user.id);
   async function convertFile(files: FileList | null) {
     if (files) {
       const fileRef = files[0] || '';

@@ -11,6 +11,7 @@ export interface IPicture {
   link: string;
   publicID: string;
   subtitle: string;
+  userId: string;
 }
 
 export default function List({ search }: listSearchProps) {
